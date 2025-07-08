@@ -4,19 +4,19 @@ Done
 # T2: Quiz
 
 
-**Exercice p1:** 
+**p1:** 
 Executing the same code repeatedly, we found out that the memory address of the main function changes between executions. This can be explained by the Address Space Layout Randomization, a feature used to randomize the address where many things(eg. functions and libraries), used mainly for security regions.
 
 ---
 
-**Exercice p2:** 
+**p2:** 
 The vulnerability in the code is a Buffer overflow, and it's main cause is the input handling.
 Since the "%s" reads the input until a "\n" we can input string longer than 9 character as a password, in order to rewrite the value of the variable "verified" from zero to a char value that belongs in long password.
 
 We changed the "-stack-protector" compiler flag so that we have stack protaction aggainst this vunlerability, but the access was still granted, because(maybe) the verified value is before the canary of the stack. To fix it, we changed the input on line 23, so that the code respects the max lenght of the char array.
 
 ---
-**Exercice p3:**
+**p3:**
 -- First, the p3 was built and the hexdump was send to p3_dump.
 
 a) The instruction push %eax puts the bar's argument in the stack, after that, the call "804919f \<bar\>" calls the function.
@@ -48,3 +48,7 @@ e) After changing and compiling the code, the hexdump was directed to the p3_cha
 After compiling the changes, we found out that the new version didn't use the eax to return the values. The new version, the compilter adds the ```movsbl %al, %eax``` that extends the 8-bit char value to a 32 bit value, this because the x86 convetions define the return of fuctions as a 32-bit value.
 
 With this in mind, the declaration of the return type is needed so that the compiler knows the correct types and the generated code respect the correct memory size and variable-type behaviour.
+
+---
+
+**p4**
