@@ -33,7 +33,7 @@ b) The bar return is moved to the eax register.
 80491b2:	c3                   	ret
 ```
 
-c) The first 2 instructions set up a new stack frame for the fuunction foo. the push saves the last base pinter and the mov sets the base pointer to the new value.
+c) The first 2 instructions set up a new stack frame for the function foo. the push saves the last base pointer and the mov sets the base pointer to the new value.
 
 The leave instruction returns the base pointer value to the last stack pointer address.
 
